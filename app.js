@@ -60,7 +60,7 @@ function showGate(msg,mode){
   if(mode==="code")setTimeout(()=>$("#gateCode").focus(),50);
 }
 function showApp(){$("#gateView").hidden=true;$("#appView").hidden=false}
-$("#toggleLogin").addEventListener("click",()=>{const toLogin=$("#loginForm").hidden;showGate(toLogin?"Đăng nhập bằng tài khoản giáo viên (cùng tài khoản với web IELTS Writing).":"Nhập mã truy cập cô Trâm gửi để vào kho tài liệu.",toLogin?"login":"code")});
+$("#toggleLogin").addEventListener("click",()=>{const toLogin=$("#loginForm").hidden;showGate(toLogin?"Đăng nhập bằng tài khoản giáo viên (tài khoản tạo trong Supabase).":"Nhập mã truy cập cô Trâm gửi để vào kho tài liệu.",toLogin?"login":"code")});
 
 async function fetchStudent(code){
   const {data,error}=await sb.rpc("ca_list",{p_code:code});

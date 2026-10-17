@@ -9,13 +9,13 @@ Hotline/Zalo: 079 29 51 529 · 0898 123 696 — 12 Lê Đình Chinh, Quy Nhơn N
 
 ## Cài đặt (làm một lần, khoảng 10 phút)
 
-Web dùng chung project Supabase với web IELTS Writing (file `config.js` đã điền sẵn địa chỉ và khoá của project đó).
-Mọi bảng của web này có tiền tố `ca_`, nên không ảnh hưởng dữ liệu IELTS Writing.
+Web dùng project Supabase riêng tên `tai-lieu-chuyen-anh` (file `config.js` đã điền sẵn địa chỉ và khoá của project đó).
 
 ### 1. Tạo bảng và kho file trong Supabase
-1. Vào https://supabase.com → mở project đang dùng cho web IELTS Writing.
+1. Vào https://supabase.com → mở project `tai-lieu-chuyen-anh`.
 2. Mở **SQL Editor → New query**. Dán toàn bộ nội dung file `supabase/schema.sql` rồi bấm **Run**.
-3. Thêm email giáo viên (thay email của bạn vào, dùng đúng email đăng nhập web IELTS Writing), chạy:
+3. Tạo tài khoản giáo viên: **Authentication → Users → Add user → Create new user**, nhập email và mật khẩu, đánh dấu **Auto Confirm User**.
+4. Cấp quyền giáo viên (thay email của bạn vào), chạy trong **SQL Editor**:
    ```sql
    insert into public.ca_teachers (email) values ('email_cua_ban@gmail.com') on conflict do nothing;
    ```
@@ -43,7 +43,7 @@ Mở web → bấm **Giáo viên đăng nhập** → đăng nhập bằng email 
 - Mở web, nhập mã cô gửi. Máy sẽ nhớ mã; khi cô đổi mã, các em được đưa về màn hình nhập mã.
 
 ## Giới hạn cần biết
-- Gói miễn phí của Supabase cho tổng dung lượng file khoảng **1 GB** (dùng chung với web IELTS Writing). Nên xuất MP3 ở 64–96 kbps (khoảng 1 MB/phút).
+- Gói miễn phí của Supabase cho tổng dung lượng file khoảng **1 GB** . Nên xuất MP3 ở 64–96 kbps (khoảng 1 MB/phút).
 - Tệp học sinh đã tải về máy thì vẫn còn trên máy các em sau khi đổi mã.
 
 ## Các file
