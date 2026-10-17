@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tài liệu Chuyên Anh | Ms Trâm English Hub</title>
+<meta name="description" content="Kho đề, đáp án, file nghe và tài liệu luyện thi chuyên Anh của Ms Trâm English Hub.">
+<link rel="icon" href="logo-mark.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: brand header (logo mark) + tabbed views; library = dạng-bài index + list; access gate before everything. Palette taken from the Ms Trâm logo. */
+:root{
+  --bg:#f3f7fa; --paper:#ffffff; --ink:#0d2233; --muted:#55697a; --line:#d9e4ec;
+  --navy:#0b3a57; --accent:#1593d6; --accent-ink:#ffffff; --accent-soft:#e3f3fc; --sky:#6cc9f3;
+  --good:#1d7a4c; --good-soft:#e2f4ea; --bad:#b4322a; --bad-soft:#fbe7e5; --warn-soft:#fff4d6;
+  --font:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0a1620; --paper:#11222f; --ink:#e6eef4; --muted:#93a8b8; --line:#23394a;
+  --navy:#7fcff5; --accent:#45b6f0; --accent-ink:#06131c; --accent-soft:#12324a; --sky:#6cc9f3;
+  --good:#5fd39a; --good-soft:#163a2a; --bad:#ff8a80; --bad-soft:#40201f; --warn-soft:#3a3214; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a1620; --paper:#11222f; --ink:#e6eef4; --muted:#93a8b8; --line:#23394a;
+  --navy:#7fcff5; --accent:#45b6f0; --accent-ink:#06131c; --accent-soft:#12324a; --sky:#6cc9f3;
+  --good:#5fd39a; --good-soft:#163a2a; --bad:#ff8a80; --bad-soft:#40201f; --warn-soft:#3a3214; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.25;margin:0;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.muted{color:var(--muted)}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:8px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.brand img{width:46px;height:auto}
+.brand .t1{font-weight:800;font-size:17px;line-height:1.1;color:var(--navy)}
+.brand .t2{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+nav.tabs{display:flex;gap:2px;flex-wrap:wrap}
+nav.tabs button{background:none;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:500;color:var(--muted)}
+nav.tabs button[aria-current="page"]{background:var(--accent-soft);color:var(--navy);font-weight:600}
+nav.tabs button:hover{color:var(--ink)}
+.who{display:flex;gap:6px;align-items:center}
+.role{font-size:12px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+
+main{padding-block:26px 48px}
+section.view{display:flex;flex-direction:column;gap:26px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--paper);padding:9px 16px;border-radius:8px;cursor:pointer;font-weight:600;text-decoration:none;color:var(--ink);white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.small{padding:5px 10px;font-size:13px;font-weight:500}
+.btn.ghost{background:none}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.field{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;width:100%}
+.status{font-size:14px}.status.err{color:var(--bad)}.status.ok{color:var(--good)}
+
+/* gate */
+.gate{min-height:100vh;display:grid;place-items:center;padding-block:32px}
+.gate-card{width:min(440px,100%);background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.gate-card img.mark{width:110px}
+.gate-card .name{font-weight:800;font-size:24px;color:var(--navy);line-height:1.1}
+.gate-card .sub{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.gate-card h1{font-size:22px;letter-spacing:.02em}
+.gate-card form{display:flex;flex-direction:column;gap:10px;width:100%}
+.gate-card input.code{text-align:center;font-size:20px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:12px}
+.gate-card .help{font-size:13.5px;color:var(--muted)}
+.gate-contact{display:flex;gap:14px;align-items:center;text-align:left;border-top:1px solid var(--line);padding-top:16px;width:100%}
+.gate-contact img{width:96px;background:#fff;padding:6px;border-radius:8px;border:1px solid var(--line)}
+
+/* home */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px clamp(18px,3vw,36px)}
+.hero .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.hero h1{font-size:clamp(28px,4.4vw,44px);color:var(--navy);margin-top:6px}
+.hero p.lead{color:var(--muted);max-width:60ch;margin-top:12px;font-size:16px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.score-sheet h3{font-size:15px;margin-bottom:8px}
+.score-sheet table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+.score-sheet td{padding:6px 0;border-bottom:1px dashed var(--line)}
+.score-sheet td:last-child{text-align:right;font-weight:700}
+.score-sheet tr:last-child td{border-bottom:0;border-top:2px solid var(--navy);padding-top:8px}
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.skill{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;cursor:pointer;text-align:left}
+.skill:hover{border-color:var(--accent)}
+.skill .sec{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.skill h3{font-size:18px}
+.skill .pts{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700}
+.skill .count{margin-top:auto;font-size:13px;color:var(--muted)}
+.block-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.block-h h2{font-size:21px}
+.linkbtn{font-size:14px;background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font-weight:600}
+
+/* library */
+.lib{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:start}
+.col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.index{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);max-height:calc(100vh - 100px);overflow:auto}
+.index details{border-bottom:1px solid var(--line)}
+.index details:last-child{border-bottom:0}
+.index summary{cursor:pointer;padding:9px 8px;font-weight:700;display:flex;justify-content:space-between;gap:8px;list-style:none}
+.index summary::-webkit-details-marker{display:none}
+.index .n{color:var(--muted);font-weight:400;font-size:12.5px;font-variant-numeric:tabular-nums}
+.index .kinds{display:flex;flex-direction:column;padding:0 0 8px}
+.index .kinds button{background:none;border:0;text-align:left;padding:6px 8px 6px 14px;border-radius:6px;cursor:pointer;display:flex;justify-content:space-between;gap:8px;font-size:14px;color:var(--ink)}
+.index .kinds button:hover{background:var(--bg)}
+.index .kinds button[aria-pressed="true"],.index .all[aria-pressed="true"]{background:var(--accent-soft);color:var(--navy);font-weight:600}
+.index .all{width:100%;background:none;border:0;text-align:left;padding:8px;font-weight:700;cursor:pointer;border-radius:6px}
+.topic-head{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.topic-head .crumb{font-size:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.topic-head h2{font-size:22px}
+.topic-head ul{margin:0;padding-left:20px;display:grid;gap:3px;max-width:75ch}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filters input[type=search]{flex:1 1 220px;min-width:0;width:auto}
+.filters select{width:auto}
+.list{display:flex;flex-direction:column;gap:10px}
+.item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.item .row1{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.item h4{font-size:16px;font-weight:600}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--muted)}
+.chip{font-size:12px;padding:1px 8px;border-radius:99px;background:var(--bg);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.chip.lv{border-color:var(--accent);color:var(--navy);background:var(--accent-soft)}
+.chip.hide{background:var(--warn-soft)}
+.item .desc{color:var(--muted);font-size:14px}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.player{display:flex;flex-direction:column;gap:4px}
+.player audio{width:100%}
+.empty{border:1.5px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:8px;align-items:center}
+.empty b{color:var(--ink);font-size:17px}
+
+/* listening */
+.lis-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.lis-head h1{font-size:clamp(24px,3.4vw,32px);color:var(--navy)}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pills button{border:1px solid var(--line);background:var(--paper);border-radius:99px;padding:5px 12px;cursor:pointer;font-size:13.5px}
+.pills button[aria-pressed="true"]{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.track{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 14px;align-items:start}
+.track .ic{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;color:var(--navy);border:0;cursor:pointer}
+.track .ic svg{width:20px;height:20px}
+.track .body{display:flex;flex-direction:column;gap:6px;min-width:0}
+
+/* forms / panels */
+.panel{background:var(--paper);border:1.5px solid var(--accent);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.panel h3{font-size:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.panel label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;min-width:0}
+.panel label small{font-weight:400;color:var(--muted)}
+.panel .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.check{flex-direction:row!important;align-items:center;gap:8px!important;font-weight:500!important}
+.codebox{font-size:22px;font-weight:800;letter-spacing:.2em;color:var(--navy);font-variant-numeric:tabular-nums}
+
+/* quiz */
+.quiz-head h1{font-size:clamp(24px,3.4vw,32px);color:var(--navy)}
+.quiz-head p{color:var(--muted);max-width:65ch;margin-top:6px}
+.paper{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:24px clamp(16px,3vw,32px);display:flex;flex-direction:column;gap:22px}
+.part-title{font-weight:700;font-size:16.5px}
+.part-note{color:var(--muted);font-size:14px;margin-top:4px;max-width:80ch}
+.q{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 8px}
+.q .num{font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px;margin-top:6px;grid-column:2}
+.opt{display:flex;gap:8px;align-items:flex-start;padding:6px 10px;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.opt:hover{background:var(--bg)}
+.opt input{margin-top:5px;accent-color:var(--accent)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.expl{grid-column:2;font-size:14px;padding:8px 12px;border-left:3px solid var(--line);color:var(--muted)}
+.expl.ok{border-color:var(--good)}.expl.no{border-color:var(--bad)}
+.expl b{color:var(--ink)}
+.passage{font-size:16px;line-height:1.9;max-width:78ch}
+.passage input{width:150px;max-width:100%;border:0;border-bottom:1.5px solid var(--ink);background:var(--accent-soft);padding:0 6px;border-radius:4px 4px 0 0}
+.passage input.right{background:var(--good-soft);border-color:var(--good)}
+.passage input.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.passage .tag{font-weight:700;font-size:13px;color:var(--accent)}
+.given{font-size:14px;display:flex;gap:6px;flex-wrap:wrap}
+.given span{border:1px solid var(--line);border-radius:6px;padding:1px 8px}
+.result{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--accent-soft);border-radius:12px;padding:16px 20px}
+.result .big{font-size:38px;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
+
+/* contact / footer */
+.contact{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px clamp(18px,3vw,32px)}
+.qr{background:#fff;padding:10px;border-radius:12px;border:1px solid var(--line);width:170px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.qr img{width:150px;height:150px;image-rendering:pixelated}
+.qr span{font-size:12px;color:#333;text-align:center}
+.contact h2{font-size:20px;color:var(--navy)}
+.contact dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:12px 0 14px}
+.contact dt{color:var(--muted);font-size:13.5px}
+.contact dd{margin:0;font-weight:600;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.copy{font-size:12px;border:1px solid var(--line);background:none;border-radius:6px;padding:1px 8px;cursor:pointer;font-weight:500;color:var(--muted)}
+footer{border-top:1px solid var(--line);background:var(--paper);padding-block:18px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:center}
+footer img{width:28px}
+
+@media (max-width:900px){
+  .hero,.contact{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lib{grid-template-columns:1fr}
+  .index{position:static;max-height:none}
+  .grid3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .skills,.grid2,.grid3,.opts{grid-template-columns:1fr}
+  .q{grid-template-columns:34px minmax(0,1fr)}
+  .brand .t2{display:none}
+  .gate-contact{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<!-- ============ GATE ============ -->
+<div id="gateView" class="wrap gate">
+  <div class="gate-card">
+    <img class="mark" src="logo-mark.png" alt="Logo Ms Trâm English Hub">
+    <div><div class="name">Ms Trâm</div><div class="sub">English Hub</div></div>
+    <h1>TÀI LIỆU CHUYÊN ANH</h1>
+    <p id="gateMsg" class="help">Đang mở…</p>
+    <form id="gateForm" hidden>
+      <input class="field code" id="gateCode" autocomplete="off" spellcheck="false" maxlength="24" placeholder="Nhập mã" aria-label="Mã truy cập">
+      <button class="btn primary" type="submit" id="gateBtn">Vào học</button>
+      <span class="status" id="gateStatus" role="status"></span>
+    </form>
+    <form id="setupForm" hidden>
+      <input class="field code" id="setupCode" autocomplete="off" spellcheck="false" maxlength="24" placeholder="VD: CHUYEN26" aria-label="Mã truy cập mới">
+      <button class="btn primary" type="submit">Lưu mã và mở kho</button>
+      <span class="status" id="setupStatus" role="status"></span>
+    </form>
+    <form id="loginForm" hidden>
+      <input class="field" type="email" id="loginEmail" autocomplete="username" placeholder="Email giáo viên" aria-label="Email giáo viên" required>
+      <input class="field" type="password" id="loginPass" autocomplete="current-password" placeholder="Mật khẩu" aria-label="Mật khẩu" required>
+      <button class="btn primary" type="submit" id="loginBtn">Đăng nhập</button>
+      <span class="status" id="loginStatus" role="status"></span>
+    </form>
+    <button class="linkbtn" type="button" id="toggleLogin" hidden>Giáo viên đăng nhập</button>
+    <div class="gate-contact">
+      <img src="zalo-qr.png" alt="Mã QR Zalo Ms Trâm English">
+      <div class="help">Chưa có mã hoặc mã đã đổi? Liên hệ cô Trâm qua Zalo <b>079 29 51 529</b> · <b>0898 123 696</b>, hoặc <a href="https://www.facebook.com/msTram.EClass/" target="_blank" rel="noopener">Facebook Ms Trâm</a>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="appView" hidden>
+<header class="top">
+  <div class="wrap">
+    <button class="brand" data-tab="home" aria-label="Trang chủ">
+      <img src="logo-mark.png" alt="">
+      <span><span class="t1">Ms Trâm English Hub</span><br><span class="t2">Tài liệu Chuyên Anh</span></span>
+    </button>
+    <nav class="tabs" aria-label="Mục chính">
+      <button data-tab="home" aria-current="page">Trang chủ</button>
+      <button data-tab="listening">Listening</button>
+      <button data-tab="library">Kho tài liệu</button>
+      <button data-tab="practice">Luyện đề</button>
+      <button data-tab="contact">Liên hệ</button>
+    </nav>
+    <div class="who">
+      <span class="role" id="role">Học sinh</span>
+      <button class="btn small" id="codeBtn" hidden type="button">Quản lý mã</button>
+      <button class="btn small ghost" id="logoutBtn" hidden type="button">Thoát</button>
+      <button class="btn small ghost" id="signoutBtn" hidden type="button">Đăng xuất</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- code manager (teacher) -->
+  <section class="panel" id="codePanel" hidden style="margin-bottom:24px">
+    <h3>Mã truy cập của học sinh</h3>
+    <div class="row"><span class="muted">Mã hiện tại:</span><span class="codebox" id="curCode">—</span><button class="copy" type="button" id="copyCode">Sao chép</button></div>
+    <p class="muted" style="font-size:14px;max-width:70ch">Khi có học sinh nghỉ, đặt mã mới rồi gửi mã mới cho các em còn học. Mã cũ hết hiệu lực ngay, đường dẫn tới các tệp cũng được đổi: ai dùng mã cũ sẽ bị đưa về màn hình nhập mã.</p>
+    <form id="rotateForm" class="row">
+      <input class="field" id="newCode" style="max-width:220px;text-transform:uppercase" maxlength="24" placeholder="Mã mới" autocomplete="off" aria-label="Mã mới">
+      <button class="btn small" type="button" id="genCode">Tạo mã ngẫu nhiên</button>
+      <button class="btn primary" type="submit" id="rotateBtn">Đổi mã</button>
+      <button class="btn ghost" type="button" id="closeCode">Đóng</button>
+      <span class="status" id="rotateStatus" role="status"></span>
+    </form>
+  </section>
+
+  <!-- upload form (teacher) -->
+  <form class="panel" id="uploadForm" hidden style="margin-bottom:24px">
+    <h3>Đăng tài liệu / đề mới</h3>
+    <div class="grid2">
+      <label>Tiêu đề<input class="field" id="f-title" required maxlength="160" placeholder="VD: Đề chuyên Anh Gia Lai 2025"></label>
+      <label>Chủ đề / chủ điểm <small>(không bắt buộc)</small><input class="field" id="f-topic" maxlength="80" placeholder="VD: Môi trường, Đảo ngữ"></label>
+    </div>
+    <div class="grid3">
+      <label>Phần<select class="field" id="f-skill"></select></label>
+      <label>Dạng bài<select class="field" id="f-kind"></select></label>
+      <label>Cấp độ<select class="field" id="f-level"><option>B1</option><option selected>B2</option><option>C1</option></select></label>
+    </div>
+    <label>Mô tả ngắn <small>(không bắt buộc)</small><textarea class="field" id="f-desc" rows="2" maxlength="500" placeholder="Số câu, thời gian làm bài, ghi chú…"></textarea></label>
+    <div class="grid3">
+      <label>Tệp đề <small>PDF, Word, ảnh</small><input class="field" type="file" id="f-exam" accept=".pdf,.docx,.pptx,.xlsx,.png,.jpg,.jpeg,.webp,.txt"></label>
+      <label>Tệp đáp án <small>PDF, Word, ảnh</small><input class="field" type="file" id="f-key" accept=".pdf,.docx,.pptx,.xlsx,.png,.jpg,.jpeg,.webp,.txt"></label>
+      <label>File nghe <small>MP3, M4A, WAV · tối đa 50 MB</small><input class="field" type="file" id="f-audio" accept=".mp3,.m4a,.wav,.ogg,.aac,audio/*"></label>
+    </div>
+    <label>Hoặc đường link ngoài <small>(Google Drive, YouTube… không bắt buộc)</small><input class="field" type="url" id="f-link" placeholder="https://"></label>
+    <label class="check"><input type="checkbox" id="f-show" checked> Cho học sinh xem đáp án ngay</label>
+    <div class="row">
+      <button class="btn primary" id="f-submit" type="submit">Đăng</button>
+      <button class="btn" type="button" id="f-cancel">Huỷ</button>
+      <span class="status" id="f-status" role="status"></span>
+    </div>
+  </form>
+
+  <!-- HOME -->
+  <section class="view" id="v-home">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Ms Trâm English Hub</div>
+        <h1>Tài liệu Chuyên Anh</h1>
+        <p class="lead">Kho đề, đáp án, file nghe và tài liệu luyện thi chuyên Anh của lớp cô Trâm, sắp theo 4 phần của đề thi và từng dạng bài.</p>
+        <div class="cta">
+          <button class="btn primary" data-go="listening">Vào kho Listening</button>
+          <button class="btn" data-go="library">Kho tài liệu</button>
+          <button class="btn" data-go="practice">Làm thử đề Gia Lai</button>
+        </div>
+      </div>
+      <div class="score-sheet">
+        <h3>Cấu trúc đề (thang 10)</h3>
+        <table>
+          <tr><td>I. Listening · câu 1–15</td><td>2.0</td></tr>
+          <tr><td>II. Lexico-Grammar · câu 16–35</td><td>2.0</td></tr>
+          <tr><td>III. Reading · câu 36–60</td><td>3.0</td></tr>
+          <tr><td>IV. Writing · câu 61–70, email, bài luận</td><td>3.0</td></tr>
+          <tr><td>Tổng</td><td>10.0</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="block-h"><h2>Bốn phần của đề</h2></div>
+      <div class="skills" id="skillCards"></div>
+    </div>
+    <div>
+      <div class="block-h"><h2>Mới đăng</h2><button class="linkbtn" data-go="library">Xem tất cả →</button></div>
+      <div class="list" id="recent"></div>
+    </div>
+  </section>
+
+  <!-- LISTENING -->
+  <section class="view" id="v-listening" hidden>
+    <div class="lis-head">
+      <div><h1>Kho Listening</h1><p class="muted">Bấm nút phát để nghe ngay trên web. Đề và đáp án đi kèm từng bài nghe.</p></div>
+      <button class="btn primary" type="button" data-upload="listening" hidden>+ Đăng bài nghe</button>
+    </div>
+    <div class="pills" id="lisPills"></div>
+    <div class="list" id="lisList"></div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section class="view" id="v-library" hidden>
+    <div class="lib">
+      <aside class="index" id="index" aria-label="Danh mục dạng bài"></aside>
+      <div class="col">
+        <div class="topic-head" id="topicHead"></div>
+        <div class="filters">
+          <input class="field" type="search" id="q" placeholder="Tìm theo tên, chủ đề…" aria-label="Tìm tài liệu">
+          <select class="field" id="fl-level" aria-label="Cấp độ"><option value="">Mọi cấp độ</option><option>B1</option><option>B2</option><option>C1</option></select>
+          <button class="btn primary" type="button" data-upload="" hidden>+ Đăng tài liệu</button>
+        </div>
+        <div class="list" id="matList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="view" id="v-practice" hidden>
+    <div class="quiz-head">
+      <h1>Đề chuyên Anh Gia Lai · Lexico-Grammar</h1>
+      <p>Câu 16–30 trích từ đề thật. Làm xong bấm Nộp bài để xem điểm và giải thích từng câu. Mỗi câu 0.1 điểm, tổng 1.5 điểm.</p>
+    </div>
+    <div class="result" id="result" hidden></div>
+    <form class="paper" id="quiz"></form>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" id="v-contact" hidden>
+    <div class="contact">
+      <div class="qr"><img src="zalo-qr.png" alt="Mã QR Zalo Ms Trâm English"><span>Mở Zalo, bấm quét QR để kết bạn</span></div>
+      <div>
+        <h2>Liên hệ cô Trâm</h2>
+        <dl>
+          <dt>Zalo / điện thoại</dt>
+          <dd><span>079 29 51 529</span><button class="copy" type="button" data-copy="0792951529">Sao chép</button></dd>
+          <dt></dt>
+          <dd><span>0898 123 696</span><button class="copy" type="button" data-copy="0898123696">Sao chép</button></dd>
+          <dt>Địa chỉ</dt>
+          <dd>12 Lê Đình Chinh – Quy Nhơn Nam</dd>
+        </dl>
+        <div class="row" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn primary" href="https://www.facebook.com/msTram.EClass/" target="_blank" rel="noopener">Facebook Ms Trâm</a>
+          <a class="btn" href="http://zaloapp.com/qr/p/1n548um6xggxm" target="_blank" rel="noopener">Mở Zalo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo-mark.png" alt="">
+    <span><b>Ms Trâm English Hub</b> · Tiếng Anh cho mọi lứa tuổi</span>
+    <span>Zalo/HP: 079 29 51 529 · 0898 123 696</span>
+    <span>12 Lê Đình Chinh – Quy Nhơn Nam</span>
+    <a href="https://www.facebook.com/msTram.EClass/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
